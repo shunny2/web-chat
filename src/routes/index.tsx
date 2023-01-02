@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import { Home } from "../pages/Home";
-import { User } from "../pages/User";
+import { Chat } from "../pages/Chat";
 import { SignIn } from "../pages/SignIn";
 import { SignUp } from "../pages/SignUp";
 
@@ -31,10 +31,10 @@ export const AppRoutes = () => {
             ></Route>
             
             <Route
-                path="/users"
+                path="/chat"
                 element={
                     <ProtectedRoute accessBy="authenticated">
-                        <User />
+                        <Chat />
                     </ProtectedRoute>
                 }
             ></Route>
