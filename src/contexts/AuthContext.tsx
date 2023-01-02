@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
+import { AuthService } from "../services/Auth";
 import { IUser, UserService } from "../services/User";
 import { getCookie, removeCookie, setCookie } from "../utils/Cookie";
-import { AuthService } from "../services/Auth";
 
 interface IAuthContext {
     user: IUser | any,
