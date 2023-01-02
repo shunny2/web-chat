@@ -5,7 +5,7 @@
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#how-to-run">How to Run</a>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="p#roject-status">Project Status</a>
+  <a href="#project-status">Project Status</a>
 </p>
 
 </br>
