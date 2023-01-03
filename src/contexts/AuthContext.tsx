@@ -33,16 +33,24 @@ export const AuthContextProvider = ({ children }: IAuthContextProvider) => {
     const navigate = useNavigate();
 
     const signUp = useCallback(async (userData: IUser) => {
-        await UserService.create(userData);
+        const result = await UserService.create(userData);
+
+        if (result instanceof Error)
+            return result;
     }, []);
 
     const login = useCallback(async (userData: IUser) => {
         const result = await AuthService.signIn(userData);
 
-        setCookie("token", result.token);
-        setUser(jwt_decode(result.token));
+        if (result.token) {
+            setCookie("token", result.token);
+            setUser(jwt_decode(result.token));
 
-        navigate("/");
+            navigate("/");
+        }
+
+        if (result instanceof Error)
+            return result;
     }, [navigate]);
 
     const logout = useCallback(async () => {
@@ -50,7 +58,7 @@ export const AuthContextProvider = ({ children }: IAuthContextProvider) => {
 
         removeCookie("token");
         setUser(null);
- 
+
         navigate("/");
     }, [navigate]);
 
