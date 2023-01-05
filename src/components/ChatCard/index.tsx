@@ -12,9 +12,14 @@ export const ChatCard = ({ message, id }: ChatCardProps) => {
     const { loggedInUser } = useContext(SocketContext);
 
     return (
-        <div className={`flex m-3 ${message.uid === id || message.user === loggedInUser ? "justify-end" : ""}`}>
-            <div className={`flex flex-col ${message.uid === id || message.user === loggedInUser ? "bg-emerald-200" : "bg-white"} rounded-lg shadow-sm p-1 max-w-[80%]`}>
-                <span className="text-sm my-1 mr-10 ml-1">
+        <div className={`flex m-3 ${message.uid === id || message.user._id === loggedInUser ? "justify-end" : ""}`}>
+            <div className={`flex flex-col ${message.uid === id || message.user._id === loggedInUser ? "bg-emerald-200" : "bg-white"} rounded-lg shadow-sm p-1 max-w-[80%]`}>
+                {message.user._id !== loggedInUser && (
+                    <span className="text-xs text-slate-400 text-right h-4 -mt-1 mr-1">
+                        {message.user.name}
+                    </span>
+                )}
+                <span className="text-base my-1 mr-10 ml-1">
                     {message.text}
                 </span>
                 <span className="text-xs text-slate-400 text-right h-4 -mt-1 mr-1">
