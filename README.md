@@ -10,11 +10,12 @@
 
 </br>
 
-![web-chat-img](https://user-images.githubusercontent.com/72872854/210188458-06fd70de-76c4-402c-b795-82e61bfa375e.png)
+![web-chat](https://user-images.githubusercontent.com/72872854/210845450-0cb6eab0-8d5e-4fbd-98cb-6f4e54dd2a37.png)
 
 ## About Web Chat
 
-Web Chat is a web application to exchange messages in real time between users.
+<b>Web Chat</b> is a web application for exchanging messages in real time between users.
+A [server](https://github.com/shunny2/web-chat-socket) was created to develop the application that uses [sockets](https://en.wikipedia.org/wiki/WebSocket) as its primary tool. It is responsible for keeping the connection open for users to exchange messages in real-time.
 
 ## Technologies
 
