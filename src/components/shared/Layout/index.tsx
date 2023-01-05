@@ -13,8 +13,8 @@ export const Layout = ({ children }: ILayout) => {
     const [navbar, setNavbar] = useState(false);
 
     return (
-        <>
-            <nav className="w-full bg-purple-500 shadow">
+        <header className="fixed">
+            <nav className="w-screen bg-purple-500 shadow">
                 <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -64,11 +64,11 @@ export const Layout = ({ children }: ILayout) => {
                             {user && (
                                 <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                                     <li className="text-white hover:text-indigo-200">
-                                        <Link to="/chat">Chat</Link>
+                                        <a href="/chat">Chat</a>
                                     </li>
                                 </ul>
                             )}
-                            <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+                            <div className="mt-3 space-y-2 lg:hidden md:hidden">
                                 {!user ? (
                                     <>
                                         <Link
@@ -85,12 +85,15 @@ export const Layout = ({ children }: ILayout) => {
                                         </Link>
                                     </>
                                 ) : user && (
-                                    <button
-                                        className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                                        onClick={() => logout()}
-                                    >
-                                        Sign out
-                                    </button>
+                                    <>
+                                        <span className="text-white hover:text-indigo-200">Welcome, <b>{user.name}!</b></span>
+                                        <button
+                                            className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                                            onClick={() => logout()}
+                                        >
+                                            Sign out
+                                        </button>
+                                    </>
                                 )}
                             </div>
 
@@ -113,12 +116,15 @@ export const Layout = ({ children }: ILayout) => {
                                 </Link>
                             </>
                         ) : user && (
-                            <button
-                                className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
-                                onClick={() => logout()}
-                            >
-                                Sign out
-                            </button>
+                            <>
+                                <span className="text-white hover:text-indigo-200">Welcome, <b>{user.name}!</b></span>
+                                <button
+                                    className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
+                                    onClick={() => logout()}
+                                >
+                                    Sign out
+                                </button>
+                            </>
                         )}
                     </div>
                 </div>
@@ -126,6 +132,6 @@ export const Layout = ({ children }: ILayout) => {
             <div className="mt-4">
                 {children}
             </div>
-        </>
+        </header>
     )
 };
