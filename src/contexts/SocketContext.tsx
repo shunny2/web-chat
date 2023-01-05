@@ -6,14 +6,15 @@ import { EVENTS, SOCKET_URI } from "../config/socket";
 import { AuthContext } from "./AuthContext";
 
 interface IUser {
-    uuid: string;
+    _id: string;
+    uuid?: string;
     name: string;
 }
 
 export interface IMessage {
     uid: string;
     text: string;
-    user: string;
+    user: IUser;
     createdAt: Date;
 }
 
@@ -27,7 +28,11 @@ export interface ISocketContext {
     setMessages: ([]: IMessage[]) => void;
 }
 
-const socket = io(SOCKET_URI, { transports: ['websocket'] });
+const socket = io(SOCKET_URI, {
+    transports: ['websocket'],
+    reconnectionAttempts: 5,
+    reconnectionDelay: 5000
+});
 
 export const SocketContext = createContext({} as ISocketContext);
 
@@ -54,7 +59,7 @@ const SocketsProvider = (props: any) => {
         if (messages.length === 0)
             socket.on(EVENTS.allMessages, (data: IMessage[]) => getAllMessages(data));
 
-        socket.on(EVENTS.user, (data) => {
+        socket.on(EVENTS.user, (data: string) => {
             setLoggedInUser(data)
         });
     }, [user, messages]);
