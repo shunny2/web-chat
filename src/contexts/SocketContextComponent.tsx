@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect, useReducer, useState } from "react";
 import { useSocket } from "../hooks/useSocket";
-import { defaultSocketContextState, SocketContextProvider, SocketReducer } from "./SocketContext";
+import { SOCKET_URI } from "../config/socket";
+import { defaultSocketContextState, SocketContextProvider, SocketReducer } from "./SocketContext2";
 
 export interface ISocketContextComponentProps extends PropsWithChildren { }
 
@@ -10,7 +11,7 @@ const SocketContextComponent: React.FunctionComponent<ISocketContextComponentPro
     const [SocketState, SocketDispatch] = useReducer(SocketReducer, defaultSocketContextState);
     const [loading, setLoading] = useState(true);
 
-    const socket = useSocket("ws://localhost:3335", {
+    const socket = useSocket(SOCKET_URI, {
         reconnectionAttempts: 5,
         reconnectionDelay: 5000,
         autoConnect: false
@@ -51,7 +52,7 @@ const SocketContextComponent: React.FunctionComponent<ISocketContextComponentPro
         /** Reconnection failed */
         socket.io.on("reconnect_failed", () => {
             console.info("Reconnection failed");
-            alert("We are unable to connect you to the web socket.")
+            alert("We are unable to connect you to the web socket.");
         });
     }
 
@@ -69,7 +70,7 @@ const SocketContextComponent: React.FunctionComponent<ISocketContextComponentPro
 
     if (loading)
         return (
-            <p>Loading socket ID...</p>
+            <p>Loading Socket ID...</p>
         )
 
     return (
