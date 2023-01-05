@@ -1,45 +1,35 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
-import io from "socket.io-client";
 import { v4 as uuidv4 } from "uuid";
-import dayjs from "dayjs";
 
 import { AuthContext } from "../../contexts/AuthContext";
-
-interface ISocketState {
-    uid: string;
-    name: string;
-    text: string | string[];
-    date: Date;
-}
+import { IMessage, SocketContext } from "../../contexts/SocketContext";
+import { ChatCard } from "../../components/ChatCard";
 
 const id = uuidv4();
-const socket = io("http://localhost:3335", { transports: ['websocket'] });
-socket.on("connect", () => console.log("[IO]: A new connection has been established."));
 
 export const Chat = () => {
     const { user } = useContext(AuthContext);
+    const { socket, setMessages, messages } = useContext(SocketContext);
 
     const [message, setMessage] = useState("");
-    const [messages, setMessages] = useState<ISocketState[]>([]);
+
+    const messageEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        socket.emit("user", {
-            name: user.name
-        });
-
-        const handleNewMessage = (newMessage: ISocketState) => {
+        const handleNewMessage = (newMessage: IMessage) => {
             setMessages([...messages, newMessage]);
-            console.log(messages);
         }
 
-        socket.on("chat.message", (data: ISocketState) => handleNewMessage(data));
+        messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-        (() => {
-            socket.off("chat.message", (data: ISocketState) => handleNewMessage(data));
-        })();
+        socket.on("chat.message", (data: IMessage) => handleNewMessage(data));
+        
+        return () => {
+            socket.off("chat.message", (data: IMessage) => handleNewMessage(data));
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [messages]);
+    }, [socket, messages]);
 
     const handleFormSubmit = (event: FormEvent) => {
         event.preventDefault();
@@ -61,24 +51,16 @@ export const Chat = () => {
                     <div className="flex items-center">
                         <div className="grid">
                             <span className="text-lg overflow-hidden text-ellipsis">
-                                Usuário
+                                Usuários Online:
                             </span>
                         </div>
                     </div>
                 </header>
                 <div className="h-[465px] md:h-[640px] lg:h-[750px]  bg-purple-300 overflow-y-scroll">
                     {messages.map((m, index) => (
-                        <div className={`flex m-3 ${m.uid === id ? "justify-end" : ""}`} key={index}>
-                            <div className={`flex flex-col ${m.uid === id ? "bg-emerald-200" : "bg-white"} rounded-lg shadow-sm p-1 max-w-[80%]`}>
-                                <span className="text-sm my-1 mr-10 ml-1">
-                                    {m.text}
-                                </span>
-                                <span className="text-xs text-slate-400 text-right h-4 -mt-1 mr-1">
-                                    {dayjs(m.date).format("DD/MM HH:mm")}
-                                </span>
-                            </div>
-                        </div>
+                        <ChatCard message={m} key={index} id={id} />
                     ))}
+                    <div ref={messageEndRef} />
                 </div>
                 <footer className="bg-slate-200 h-16 bottom-0 left-0 w-full p-3 shadow-md">
                     <form className="flex items-center gap-4 w-full" onSubmit={handleFormSubmit}>
