@@ -31,6 +31,9 @@ Web Chat is a web application to exchange messages in real time between users.
     <td>
       <a href="https://tailwindcss.com/" title="Tailwind CSS"><img width="128" height="128" src="https://cdn.worldvectorlogo.com/logos/tailwindcss.svg" alt="Tailwind CSS logo image." /></a>
     </td>
+    <td>
+      <a href="https://socket.io/" title="Socket.io"><img width="128" height="128" src="https://socket.io/images/logo.svg" alt="Socket.io logo image." /></a>
+    </td>
   </tbody>
 </table>
 
