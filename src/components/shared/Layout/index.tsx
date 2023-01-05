@@ -86,7 +86,7 @@ export const Layout = ({ children }: ILayout) => {
                                     </>
                                 ) : user && (
                                     <>
-                                        <span className="text-white hover:text-indigo-200">Welcome, <b>{user.name}!</b></span>
+                                        <span className="text-white hover:text-indigo-200">Hello, <b>{user.name}!</b></span>
                                         <button
                                             className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                                             onClick={() => logout()}
@@ -117,7 +117,7 @@ export const Layout = ({ children }: ILayout) => {
                             </>
                         ) : user && (
                             <>
-                                <span className="text-white hover:text-indigo-200">Welcome, <b>{user.name}!</b></span>
+                                <span className="text-white hover:text-indigo-200">Hello, <b>{user.name}!</b></span>
                                 <button
                                     className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                                     onClick={() => logout()}
