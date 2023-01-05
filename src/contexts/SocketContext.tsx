@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import io, { Socket } from "socket.io-client";
 
-import { SOCKET_URI } from "../config/socket";
+import { EVENTS, SOCKET_URI } from "../config/socket";
 import { AuthContext } from "./AuthContext";
 
 interface IUser {
@@ -38,22 +38,23 @@ const SocketsProvider = (props: any) => {
     const [loggedInUser, setLoggedInUser] = useState("");
 
     useEffect(() => {
-        socket.on("connect", () => console.info("[IO]: A new connection has been established."));
+        socket.on(EVENTS.connect, () => console.info("[IO]: A new connection has been established."));
 
-        if (user)
-            socket.emit("user", {
+        if (user) {
+            socket.emit(EVENTS.user, {
                 uuid: user.id,
                 name: user.name
             });
+        }
 
         const getAllMessages = (messages: IMessage[]) => {
             setMessages(messages);
         }
 
         if (messages.length === 0)
-            socket.on("chat.all.messages", (data: IMessage[]) => getAllMessages(data));
+            socket.on(EVENTS.allMessages, (data: IMessage[]) => getAllMessages(data));
 
-        socket.on("user", (data) => {
+        socket.on(EVENTS.user, (data) => {
             setLoggedInUser(data)
         });
     }, [user, messages]);
