@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { AuthContext } from "../../contexts/AuthContext";
 import { IMessage, SocketContext } from "../../contexts/SocketContext";
 import { ChatCard } from "../../components/ChatCard";
+import { EVENTS } from "../../config/socket";
 
 const id = uuidv4();
 
@@ -23,10 +24,10 @@ export const Chat = () => {
 
         messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-        socket.on("chat.message", (data: IMessage) => handleNewMessage(data));
+        socket.on(EVENTS.message, (data: IMessage) => handleNewMessage(data));
         
         return () => {
-            socket.off("chat.message", (data: IMessage) => handleNewMessage(data));
+            socket.off(EVENTS.message, (data: IMessage) => handleNewMessage(data));
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [socket, messages]);
@@ -35,7 +36,7 @@ export const Chat = () => {
         event.preventDefault();
 
         if (message.trim()) {
-            socket.emit("chat.message", {
+            socket.emit(EVENTS.message, {
                 uid: id,
                 name: user.name,
                 text: message
