@@ -10,7 +10,7 @@
 
 </br>
 
-![web-chat](https://user-images.githubusercontent.com/72872854/210845450-0cb6eab0-8d5e-4fbd-98cb-6f4e54dd2a37.png)
+![we-chat-giff](https://user-images.githubusercontent.com/72872854/211026234-8486f659-13f4-47b8-8ae0-aee1c7dae7e2.gif)
 
 ## About Web Chat
 
