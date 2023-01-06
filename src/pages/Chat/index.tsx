@@ -25,7 +25,7 @@ export const Chat = () => {
         messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 
         socket.on(EVENTS.message, (data: IMessage) => handleNewMessage(data));
-        
+
         return () => {
             socket.off(EVENTS.message, (data: IMessage) => handleNewMessage(data));
         };
@@ -46,38 +46,36 @@ export const Chat = () => {
     }
 
     return (
-        <div className="flex w-full">
-            <div className="flex flex-col w-full">
-                <header className="flex items-center justify-between h-14 bg-slate-200 px-3 shadow-sm shadow-black z-[1] ">
-                    <div className="flex items-center">
-                        <div className="grid">
-                            <span className="text-lg overflow-hidden text-ellipsis">
-                                Usuários Online:
-                            </span>
-                        </div>
+        <div className="flex flex-col items-center justify-center min-h-[533px] max-h-[533px] md:max-h-[700px] md:min-h-[700px]">
+            <header className="flex items-center justify-between h-16 w-full max-w-[500px] md:max-w-[700px] bg-slate-200 p-3 shadow-sm shadow-black z-[1] ">
+                <div className="flex items-center">
+                    <div className="grid">
+                        <span className="text-lg overflow-hidden text-ellipsis">
+                            Usuários Online:
+                        </span>
                     </div>
-                </header>
-                <div className="h-[465px] md:h-[640px] lg:h-[750px]  bg-purple-300 overflow-y-scroll">
-                    {messages.map((m, index) => (
-                        <ChatCard message={m} key={index} id={id} />
-                    ))}
-                    <div ref={messageEndRef} />
                 </div>
-                <footer className="bg-slate-200 h-16 bottom-0 left-0 w-full p-3 shadow-md">
-                    <form className="flex items-center gap-4 w-full" onSubmit={handleFormSubmit}>
-                        <input
-                            className="p-2 outline-none border-none rounded w-full shadow-inner"
-                            type="text"
-                            placeholder="Message..."
-                            value={message}
-                            onChange={event => setMessage(event.target.value)}
-                        />
-                        <button type="submit">
-                            <MdSend size={28} color={"#a855f7"} />
-                        </button>
-                    </form>
-                </footer>
+            </header>
+            <div className="h-full w-full max-w-[500px] md:max-w-[700px] bg-purple-300 overflow-y-scroll">
+                {messages.map((m, index) => (
+                    <ChatCard message={m} key={index} id={id} />
+                ))}
+                <div ref={messageEndRef} />
             </div>
+            <footer className="bg-slate-200 h-16 bottom-0 left-0 w-full max-w-[500px] md:max-w-[700px] p-3 shadow-md">
+                <form className="flex items-center gap-4 w-full" onSubmit={handleFormSubmit}>
+                    <input
+                        className="p-2 outline-none border-none rounded w-full shadow-inner"
+                        type="text"
+                        placeholder="Message..."
+                        value={message}
+                        onChange={event => setMessage(event.target.value)}
+                    />
+                    <button type="submit">
+                        <MdSend size={28} color={"#a855f7"} />
+                    </button>
+                </form>
+            </footer>
         </div>
     )
 };
