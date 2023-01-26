@@ -10,7 +10,13 @@
 
 </br>
 
-![we-chat-giff](https://user-images.githubusercontent.com/72872854/211026234-8486f659-13f4-47b8-8ae0-aee1c7dae7e2.gif)
+![web-chat-giff](https://user-images.githubusercontent.com/72872854/214863942-b80b5d99-98d8-4078-acd8-419d6ddf0539.gif)
+
+<p align="center">
+<a href="https://img.shields.io/github/stars/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/stars/shunny2/web-chat?style=social" alt="Repo Stars"/></a>
+<a href="https://img.shields.io/github/forks/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/forks/shunny2/web-chat?style=social" alt="Repo Forks"/></a>
+<a href="https://img.shields.io/github/license/shunny2/web-chat"><img src="https://img.shields.io/github/license/shunny2/web-chat" alt="License"/></a>
+</p>
 
 ## About Web Chat
 
