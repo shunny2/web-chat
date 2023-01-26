@@ -51,7 +51,7 @@ export const Chat = () => {
                 <div className="flex items-center">
                     <div className="grid">
                         <span className="text-lg overflow-hidden text-ellipsis">
-                            Usuários Online:
+                            Online Users: 
                         </span>
                     </div>
                 </div>
