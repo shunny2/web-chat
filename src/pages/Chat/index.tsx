@@ -47,13 +47,11 @@ export const Chat = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[533px] max-h-[533px] md:max-h-[700px] md:min-h-[700px]">
-            <header className="flex items-center justify-between h-16 w-full max-w-[500px] md:max-w-[700px] bg-slate-200 p-3 shadow-sm shadow-black z-[1] ">
+            <header className="flex items-center justify-between h-16 w-full max-w-[500px] md:max-w-[700px] bg-slate-200 p-3 shadow-sm shadow-black md:z-[1]">
                 <div className="flex items-center">
-                    <div className="grid">
-                        <span className="text-lg overflow-hidden text-ellipsis">
-                            Online Users: 
-                        </span>
-                    </div>
+                    <span className="text-lg overflow-hidden text-ellipsis">
+                        Online Users:
+                    </span>
                 </div>
             </header>
             <div className="h-full w-full max-w-[500px] md:max-w-[700px] bg-purple-300 overflow-y-scroll">
