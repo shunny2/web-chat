@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="#about-web-chat">About Web Chat</a>
+    <a href="#about-application">About Application</a>
     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#technologies">Technologies</a>
     &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -17,10 +17,10 @@
 <p align="center">
     <a href="https://img.shields.io/github/stars/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/stars/shunny2/web-chat?style=social" alt="Repo Stars"/></a>
     <a href="https://img.shields.io/github/forks/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/forks/shunny2/web-chat?style=social" alt="Repo Forks"/></a>
-    <a href="https://img.shields.io/github/license/shunny2/web-chat"><img src="https://img.shields.io/github/license/shunny2/web-chat" alt="License"/></a>
+    <a href="https://img.shields.io/github/license/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/license/shunny2/web-chat?style=social" alt="License"/></a>
 </p>
 
-## About Web Chat
+## About Application
 
 <b>Web Chat</b> is a web application for exchanging real-time user messages.
 A [server](https://github.com/shunny2/web-chat-socket) was created to develop the application that uses [sockets](https://en.wikipedia.org/wiki/WebSocket) as its primary tool. It is responsible for keeping the connection open for users to exchange messages in real-time.
