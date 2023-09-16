@@ -63,9 +63,9 @@ export const Layout = ({ children }: ILayout) => {
                         <div>
                             <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? "block" : "hidden"}`}>
                                 {user && (
-                                    <ul className="items-center justify-center space-y-8 md:hidden md:space-x-6 md:space-y-0">
+                                    <ul className="items-center justify-center space-y-8  md:space-x-6 md:space-y-0">
                                         <li className="text-white hover:text-indigo-200">
-                                            <a href="/chat">Chat</a>
+                                            <a href="/chat">Online Chat</a>
                                         </li>
                                     </ul>
                                 )}
