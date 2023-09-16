@@ -3,7 +3,7 @@ import { jwtInterceptor } from "../Axios";
 
 const signIn = async (userData: IUser): Promise<any | Error> => {
     try {
-        const { data } = await jwtInterceptor.post<any | Error>("auth/signIn", userData, { withCredentials: true });
+        const { data } = await jwtInterceptor.post<any | Error>("auth/login", userData, { withCredentials: true });
 
         jwtInterceptor.defaults.headers.common["Authorization"] = `Bearer ${data["token"]}`;
 
