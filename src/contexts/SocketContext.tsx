@@ -22,6 +22,7 @@ export interface ISocketContext {
     socket: Socket;
     user: IUser;
     loggedInUser: string;
+    onlineUsersCount: number;
     messages: IMessage[];
 
     // eslint-disable-next-line no-empty-pattern
@@ -41,6 +42,7 @@ const SocketsProvider = (props: any) => {
 
     const [messages, setMessages] = useState<IMessage[]>([]);
     const [loggedInUser, setLoggedInUser] = useState("");
+    const [onlineUsersCount, setOnlineUsersCount] = useState(0);
 
     useEffect(() => {
         socket.on(EVENTS.connect, () => console.info("[IO]: A new connection has been established."));
@@ -60,13 +62,17 @@ const SocketsProvider = (props: any) => {
             socket.on(EVENTS.allMessages, (data: IMessage[]) => getAllMessages(data));
 
         socket.on(EVENTS.user, (data: string) => {
-            setLoggedInUser(data)
+            setLoggedInUser(data);
         });
-    }, [user, messages]);
+
+        socket.on(EVENTS.onlineUsers, (data: number) => {
+            setOnlineUsersCount(data);
+        })
+    }, [user, messages, onlineUsersCount]);
 
     return (
         <SocketContext.Provider
-            value={{ socket, messages, setMessages, loggedInUser }}
+            value={{ socket, messages, setMessages, loggedInUser, onlineUsersCount }}
             {...props}
         />
     )
