@@ -22,9 +22,14 @@ export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthContextProvider = ({ children }: IAuthContextProvider) => {
     const [user, setUser] = useState(() => {
-        if (getCookie("token")) {
-            let token = getCookie("token") || "{}";
-            return jwt_decode(token);
+
+        try {
+            if (getCookie("token")) {
+                let token = getCookie("token") || "{}";
+                return jwt_decode(token);
+            }
+        } catch (error: any) {
+            console.error(error.message);
         }
 
         return null;
