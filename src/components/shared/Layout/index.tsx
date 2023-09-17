@@ -12,6 +12,9 @@ export const Layout = ({ children }: ILayout) => {
 
     const [navbar, setNavbar] = useState(false);
 
+    const closeNavbar = () => setNavbar(false);
+
+
     return (
         <>
             <header className="fixed">
@@ -74,12 +77,14 @@ export const Layout = ({ children }: ILayout) => {
                                         <>
                                             <Link
                                                 to="/signin"
+                                                onClick={closeNavbar}
                                                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                                             >
                                                 Sign in
                                             </Link>
                                             <Link
                                                 to="/signup"
+                                                onClick={closeNavbar}
                                                 className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                                             >
                                                 Sign up
