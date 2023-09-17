@@ -11,7 +11,7 @@ const id = uuidv4();
 
 export const Chat = () => {
     const { user } = useContext(AuthContext);
-    const { socket, setMessages, messages } = useContext(SocketContext);
+    const { socket, setMessages, messages, onlineUsersCount } = useContext(SocketContext);
 
     const [message, setMessage] = useState("");
 
@@ -50,7 +50,7 @@ export const Chat = () => {
             <header className="flex items-center justify-between h-16 w-full max-w-[500px] md:max-w-[700px] bg-slate-200 p-3 shadow-sm shadow-black md:z-[1]">
                 <div className="flex items-center">
                     <span className="text-lg overflow-hidden text-ellipsis">
-                        Online Users:
+                        Online Users: {onlineUsersCount}
                     </span>
                 </div>
             </header>
