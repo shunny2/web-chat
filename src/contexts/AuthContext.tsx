@@ -59,8 +59,8 @@ export const AuthContextProvider = ({ children }: IAuthContextProvider) => {
         removeCookie("token");
         setUser(null);
 
-        navigate("/");
-    }, [navigate]);
+        window.location.href = '/';
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, signUp, login, logout }}>
