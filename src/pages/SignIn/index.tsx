@@ -52,7 +52,7 @@ export const SignIn = () => {
                 >
                     {formik => {
                         return (
-                            <Form className="items-stretch w-full max-w-[400px] mt-10 mx-14">
+                            <Form className="w-80 max-w-[400px] md:w-[400px]">
                                 <Field
                                     id="email"
                                     name="email"

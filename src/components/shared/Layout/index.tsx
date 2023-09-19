@@ -17,8 +17,8 @@ export const Layout = ({ children }: ILayout) => {
 
     return (
         <>
-            <header className="fixed">
-                <nav className="w-screen bg-purple-500 shadow">
+            <header className="h-16 md:h-[72px] w-full">
+                <nav className="bg-purple-500 shadow z-10 relative">
                     <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                         <div>
                             <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -136,7 +136,7 @@ export const Layout = ({ children }: ILayout) => {
                     </div>
                 </nav>
             </header>
-            <div className="w-screen h-screen flex flex-col justify-center">
+            <div className="h-[calc(100dvh-64px)] md:h-[calc(100dvh-72px)] flex flex-col items-center justify-center">
                 {children}
             </div>
         </>

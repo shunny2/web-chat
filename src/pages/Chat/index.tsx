@@ -46,7 +46,7 @@ export const Chat = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[533px] max-h-[533px] md:max-h-[700px] md:min-h-[700px]">
+        <div className="flex flex-col items-center justify-center min-h-[590px] min-w-[260px] w-full h-full py-4 px-4 md:py-0 md:px-0 md:max-h-[700px] md:min-h-[700px]">
             <header className="flex items-center justify-between h-16 w-full max-w-[500px] md:max-w-[700px] bg-purple-500 p-3 shadow-sm shadow-black md:z-[1]">
                 <div className="flex items-center justify-center w-full">
                     <span className="text-white text-lg overflow-hidden text-ellipsis">
