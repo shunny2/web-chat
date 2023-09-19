@@ -13,9 +13,9 @@ export const ChatCard = ({ message, id }: ChatCardProps) => {
 
     return (
         <div className={`flex m-3 ${message.uid === id || message.user._id === loggedInUser ? "justify-end" : ""}`}>
-            <div className={`flex flex-col ${message.uid === id || message.user._id === loggedInUser ? "bg-emerald-200 rounded-tr-lg rounded-tl-lg rounded-bl-lg" : "bg-white rounded-tr-lg rounded-br-lg rounded-bl-lg"} shadow-sm p-1 max-w-[80%]`}>
+            <div className={`flex flex-col ${message.uid === id || message.user._id === loggedInUser ? "bg-emerald-700 text-white rounded-tr-2xl rounded-tl-2xl rounded-bl-2xl" : "bg-gray-800 text-white rounded-tr-2xl rounded-br-2xl rounded-bl-2xl"} shadow-sm p-1 max-w-[80%]`}>
                 {message.user._id !== loggedInUser && (
-                    <span className="text-xs text-slate-400 text-right h-4 -mt-1 mr-1">
+                    <span className={`text-xs text-slate-400 ${message.user.name && "h-4 mt-1 mx-1"}`}>
                         {message.user.name}
                     </span>
                 )}
