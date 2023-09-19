@@ -56,7 +56,8 @@ export const SignIn = () => {
                                 <Field
                                     id="email"
                                     name="email"
-                                    label="Email"
+                                    label="email"
+                                    labelText="Email"
                                     type="email"
                                     placeholder="John@4shared.com"
                                     component={Input}
@@ -65,7 +66,8 @@ export const SignIn = () => {
                                 <Field
                                     id="password"
                                     name="password"
-                                    label="Password"
+                                    label="password"
+                                    labelText="Password"
                                     type="password"
                                     placeholder="**********"
                                     component={Input}

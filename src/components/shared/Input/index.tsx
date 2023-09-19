@@ -10,14 +10,16 @@ export const Input = ({
     field,
     form,
     label,
+    labelText,
     ...props
 }: {
     field: FieldInputProps<any>;
     form: FormikState<any>;
-    label: string;
+    label?: string;
+    labelText?: string;
 }) => (
     <div className="flex flex-col gap-2 my-2">
-        <label htmlFor={label} className="font-semibold">{label}</label>
+        <label htmlFor={label} className="font-semibold">{labelText}</label>
         <div className="flex items-center h-12 w-full max-w-[400px] py-4 px-3 rounded bg-gray-600 focus-within:ring-2 ring-gray-900">
             <CustomInput {...field} {...props} />
         </div>
