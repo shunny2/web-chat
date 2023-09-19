@@ -70,11 +70,12 @@ export const SignUp = () => {
                 >
                     {formik => {
                         return (
-                            <Form className="items-stretch w-full max-w-[400px] mt-10 mx-14">
+                            <Form className="w-80 max-w-[400px] md:w-[400px]">
                                 <Field
                                     id="name"
                                     name="name"
-                                    label="Name"
+                                    label="name"
+                                    labelText="Name"
                                     type="text"
                                     placeholder="John Doe"
                                     component={Input}
@@ -83,7 +84,8 @@ export const SignUp = () => {
                                 <Field
                                     id="email"
                                     name="email"
-                                    label="Email"
+                                    label="email"
+                                    labelText="Email"
                                     type="email"
                                     placeholder="John@4shared.com"
                                     component={Input}
@@ -92,7 +94,8 @@ export const SignUp = () => {
                                 <Field
                                     id="password"
                                     name="password"
-                                    label="Password"
+                                    label="password"
+                                    labelText="Password"
                                     type="password"
                                     placeholder="**********"
                                     component={Input}
@@ -101,7 +104,8 @@ export const SignUp = () => {
                                 <Field
                                     id="repeatPassword"
                                     name="repeatPassword"
-                                    label="Confirm password"
+                                    label="repeatPassword"
+                                    labelText="Confirm password"
                                     type="password"
                                     placeholder="**********"
                                     component={Input}
