@@ -22,8 +22,7 @@
 
 ## About Application
 
-<b>Web Chat</b> is a web application for exchanging real-time user messages.
-A [server](https://github.com/shunny2/web-chat-socket) was created to develop the application that uses [sockets](https://en.wikipedia.org/wiki/WebSocket) as its primary tool. It is responsible for keeping the connection open for users to exchange messages in real-time.
+<b>Web Chat</b> is a web application that allows users to communicate in real-time by exchanging messages. To ensure security and authenticity, we developed a Node.js [server](https://github.com/shunny2/jwt-prisma) that uses [JSON Web Token (JWT)](https://jwt.io/) technology to authenticate users. Additionally, we created another Node.js [server](https://github.com/shunny2/server-socket) dedicated exclusively to managing conversations between users. This server keeps a record of authenticated users and stores their corresponding messages, using [sockets](https://en.wikipedia.org/wiki/WebSocket) as the primary tool for exchanging information in real-time. Its principal function is to maintain open connections to enable a seamless and instant messaging experience between users.
 
 ## Technologies
 
