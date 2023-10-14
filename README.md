@@ -12,7 +12,7 @@
 
 </br>
 
-![web-chat](https://github.com/shunny2/web-chat/assets/72872854/033d73ef-f088-438b-a13c-861d8722196f)
+![web-chat](https://github.com/shunny2/web-chat/assets/72872854/c2dc0563-620d-4352-8ccd-a3833cc097fa)
 
 <p align="center">
     <a href="https://img.shields.io/github/stars/shunny2/web-chat?style=social"><img src="https://img.shields.io/github/stars/shunny2/web-chat?style=social" alt="Repo Stars"/></a>
