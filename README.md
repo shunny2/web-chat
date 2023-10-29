@@ -62,7 +62,9 @@ Run the application (frontend):
 npm start
 ```
 
-Your application will be available at [Home](http://localhost:3000/)
+Your application will be available at [Home](http://localhost:3000/).
+
+Keep in mind that for this application to function properly, both your [socket](https://github.com/shunny2/server-socket) and [authentication](https://github.com/shunny2/jwt-prisma) services need to be operational.
 
 ## Project Status
 
