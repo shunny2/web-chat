@@ -22,7 +22,7 @@ export const Chat = () => {
             setMessages([...messages, newMessage]);
         }
 
-        messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
 
         socket.on(EVENTS.message, (data: IMessage) => handleNewMessage(data));
 
