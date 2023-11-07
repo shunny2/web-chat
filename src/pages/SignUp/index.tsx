@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Field, Form, Formik } from "formik";
-import { toast, ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import * as yup from "yup";
 
@@ -45,11 +45,11 @@ export const SignUp = () => {
         const result = await signUp(values);
 
         if (result instanceof Error)
-            toast.error(result.message)
+            toast.error(result.message);
         else
             toast.success("Success in registering!", {
                 onClose: () => navigate("/signIn")
-            })
+            });
     };
 
     const initialValues: IFormatData = {
@@ -57,7 +57,7 @@ export const SignUp = () => {
         email: "",
         password: "",
         repeatPassword: ""
-    }
+    };
 
     return (
         <>
