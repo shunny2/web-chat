@@ -76,14 +76,14 @@ export const Layout = ({ children }: ILayout) => {
                                     {!user ? (
                                         <>
                                             <Link
-                                                to="/signin"
+                                                to="/sign-in"
                                                 onClick={closeNavbar}
                                                 className="inline-block w-full px-4 py-2 text-center text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                                             >
                                                 Sign in
                                             </Link>
                                             <Link
-                                                to="/signup"
+                                                to="/sign-up"
                                                 onClick={closeNavbar}
                                                 className="inline-block w-full px-4 py-2 text-center text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                                             >
@@ -109,13 +109,13 @@ export const Layout = ({ children }: ILayout) => {
                             {!user ? (
                                 <>
                                     <Link
-                                        to="/signin"
+                                        to="/sign-in"
                                         className="px-4 py-2 text-white bg-gray-600 rounded-md shadow hover:bg-gray-800"
                                     >
                                         Sign in
                                     </Link>
                                     <Link
-                                        to="/signup"
+                                        to="/sign-up"
                                         className="px-4 py-2 text-gray-800 bg-white rounded-md shadow hover:bg-gray-100"
                                     >
                                         Sign up
