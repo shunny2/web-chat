@@ -22,7 +22,7 @@
 
 ## About Application
 
-<b>Web Chat</b> is a web application that allows users to communicate in real-time by exchanging messages. To ensure security and authenticity, we developed a Node.js [server](https://github.com/shunny2/jwt-prisma) that uses [JSON Web Token (JWT)](https://jwt.io/) technology to authenticate users. Additionally, we created another Node.js [server](https://github.com/shunny2/server-socket) dedicated exclusively to managing conversations between users. This server keeps a record of authenticated users and stores their corresponding messages, using [sockets](https://en.wikipedia.org/wiki/WebSocket) as the primary tool for exchanging information in real-time. Its principal function is to maintain open connections to enable a seamless and instant messaging experience between users.
+<b>Web Chat</b> is a web application that allows users to communicate in real-time by exchanging messages. To ensure security and authenticity, [jwt-prisma](https://github.com/shunny2/jwt-prisma) was developed, a Node.js server that utilizes [JSON Web Token (JWT)](https://jwt.io/) technology to authenticate users. Additionally, we've created the [server-socket](https://github.com/shunny2/server-socket), another dedicated Node.js server exclusively for managing conversations between users. This server keeps a record of authenticated users and stores their corresponding messages, using [sockets](https://en.wikipedia.org/wiki/WebSocket) as the primary tool for real-time information exchange. Its main function is to maintain open connections to enable a seamless and continuous instant messaging experience between users.
 
 ## Technologies
 
@@ -62,7 +62,9 @@ Run the application (frontend):
 npm start
 ```
 
-Your application will be available at [Home](http://localhost:3000/)
+Your application will be available at [Home](http://localhost:3000/).
+
+Keep in mind that for this application to function properly, both your [socket](https://github.com/shunny2/server-socket) and [authentication](https://github.com/shunny2/jwt-prisma) services need to be operational.
 
 ## Project Status
 
