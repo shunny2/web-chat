@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { Field, Form, Formik } from "formik";
-import { toast, ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from "react-toastify"
 
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 import * as yup from "yup";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { Input } from "../../components/shared/Input";
+import { Link } from "react-router-dom";
 
 interface IFormatData {
     email: string;
@@ -33,13 +34,13 @@ export const SignIn = () => {
         const result = await login(values);
 
         if (result instanceof Error)
-            toast.error(result.message)
+            toast.error(result.message);
     };
 
     const initialValues: IFormatData = {
         email: "",
         password: ""
-    }
+    };
 
     return (
         <>
@@ -80,6 +81,15 @@ export const SignIn = () => {
                                 >
                                     Sign In
                                 </button>
+
+                                <p className="text-right mt-2">
+                                    <Link 
+                                        to="/forgot-password"
+                                        className="text-purple-500 hover:underline"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </p>
                             </Form>
                         )
                     }}
