@@ -74,6 +74,25 @@ export const SignIn = () => {
                                     component={Input}
                                 />
 
+                                <div className="flex items-center justify-between mt-6 text-sm md:text-base">
+                                    <div className="flex items-center text-gray-500">
+                                        <input
+                                            className="mr-2 w-4 h-4 accent-purple-500 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600"
+                                            type="checkbox"
+                                            name="remember"
+                                            id="remember"
+                                        />
+                                        <label htmlFor="remember">Remember me</label>
+                                    </div>
+
+                                    <Link
+                                        to="/forgot-password"
+                                        className="text-gray-500 hover:underline"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </div>
+
                                 <button
                                     type="submit"
                                     disabled={!formik.isValid}
@@ -82,14 +101,15 @@ export const SignIn = () => {
                                     Sign In
                                 </button>
 
-                                <p className="text-right mt-2">
-                                    <Link 
-                                        to="/forgot-password"
-                                        className="text-purple-500 hover:underline"
+                                <div className="flex items-center justify-center gap-1 mt-4 text-sm md:text-base">
+                                    <span className="text-gray-500">Don't have a Web Chat account?</span>
+                                    <Link
+                                        to="/sign-up"
+                                        className="font-semibold"
                                     >
-                                        Forgot password?
+                                        Register Now
                                     </Link>
-                                </p>
+                                </div>
                             </Form>
                         )
                     }}
