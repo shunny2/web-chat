@@ -68,7 +68,7 @@ Keep in mind that for this application to function properly, both your [socket](
 
 ## Project Status
 
-> Status: Developing.
+> Status: Completed.
 
 ## License
 
