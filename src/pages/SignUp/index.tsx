@@ -48,7 +48,7 @@ export const SignUp = () => {
             toast.error(result.message);
         else
             toast.success("Success in registering!", {
-                onClose: () => navigate("/signIn")
+                onClose: () => navigate("/sign-in")
             });
     };
 
